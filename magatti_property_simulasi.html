@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simulasi Cicilan Magatti Property — Hitung perkiraan angsuran rumah syariah Anda dengan mudah. Skema cicilan flat, tanpa bunga, tanpa riba.">
+    <meta property="og:title" content="Simulasi Cicilan — Magatti Property Syariah">
+    <meta property="og:description" content="Kalkulator cicilan properti syariah transparan. Hitung DP dan tenor pilihan Anda tanpa takut suku bunga naik (flat sampai lunas).">
+    <meta property="og:url" content="https://magattiproperty.com/pricing.html">
+    <meta name="theme-color" content="#065f46">
+    <title>Simulasi Cicilan Syariah — Magatti Property</title>
+
+    <!-- Favicon (SVG Emoji) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+    
+    <!-- CSS Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#065f46',
+                        'primary-hover': '#047857',
+                        'primary-light': '#ecfdf5',
+                        dark: '#0f172a',
+                        surface: '#f8fafc',
+                        panel: '#ffffff',
+                        text: '#1e293b',
+                        muted: '#64748b',
+                        border: '#e2e8f0',
+                        success: '#10b981',
+                        warning: '#f59e0b',
+                        error: '#ef4444',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #065f46;
+            --primary-hover: #047857;
+            --primary-light: #ecfdf5;
+            --font-sans: 'Inter', sans-serif;
+        }
+        body {
+            font-family: var(--font-sans);
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        /* Custom range slider styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #e2e8f0;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded">
+        Skip to content
+    </a>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-border shadow-sm" x-data="{ open: false }">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2 group focus-visible:outline-2 focus-visible:outline-primary rounded">
+                    <span class="material-symbols-outlined text-3xl text-primary group-hover:text-primary-hover transition">real_estate_agent</span>
+                    <div>
+                        <h1 class="text-xl font-bold text-primary leading-tight">Magatti</h1>
+                        <p class="text-[10px] text-muted tracking-widest uppercase font-semibold">Property Syariah</p>
+                    </div>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-text hover:text-primary transition">Home</a>
+                    <a href="about.html" class="text-text hover:text-primary transition">About</a>
+                    <a href="services.html" class="text-text hover:text-primary transition">Katalog</a>
+                    <a href="pricing.html" class="text-primary font-semibold transition">Simulasi</a>
+                    <a href="contact.html" class="text-text hover:text-primary transition">Kontak</a>
+                    <a href="contact.html" class="bg-primary text-white px-5 py-2.5 rounded-lg font-medium hover:bg-primary-hover transition shadow-md shadow-primary/20">
+                        Hubungi Kami
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <button @click="open = !open" class="md:hidden p-2 text-text hover:text-primary transition rounded focus-visible:outline-2 focus-visible:outline-primary" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-2xl" x-show="!open">menu</span>
+                    <span class="material-symbols-outlined text-2xl" x-cloak x-show="open">close</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden border-t border-border bg-white absolute w-full shadow-lg" x-show="open" x-collapse x-cloak>
+            <div class="px-4 py-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 text-text hover:bg-surface rounded-lg">Home</a>
+                <a href="about.html" class="block px-4 py-3 text-text hover:bg-surface rounded-lg">About</a>
+                <a href="services.html" class="block px-4 py-3 text-text hover:bg-surface rounded-lg">Katalog</a>
+                <a href="pricing.html" class="block px-4 py-3 bg-primary-light text-primary font-semibold rounded-lg">Simulasi</a>
+                <a href="contact.html" class="block px-4 py-3 text-text hover:bg-surface rounded-lg">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="pt-20">
+        
+        <!-- PAGE HERO -->
+        <section class="bg-primary-light py-16 md:py-24 border-b border-border">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold text-dark mb-4">Simulasi Pembiayaan Syariah</h1>
+                <p class="text-lg text-muted max-w-2xl mx-auto mb-6">Hitung perkiraan angsuran perumahan Anda dengan skema syariah yang adil, transparan, dan angsuran flat sampai lunas tanpa riba.</p>
+                <nav class="flex items-center justify-center gap-2 text-sm text-muted font-medium">
+                    <a href="index.html" class="hover:text-primary transition flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">home</span> Beranda
+                    </a>
+                    <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    <span class="text-primary">Simulasi</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- CALCULATOR SECTION -->
+        <section class="py-20 bg-surface">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div x-data="syariahCalculator()" class="grid md:grid-cols-5 gap-8 items-start">
+                    
+                    <!-- Input Controls -->
+                    <div class="md:col-span-3 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-border" data-aos="fade-right">
+                        <h2 class="text-2xl font-bold text-dark mb-6 border-b border-border pb-4">Atur Skema Pembiayaan</h2>
+                        
+                        <!-- Harga Properti -->
+                        <div class="mb-6">
+                            <label class="flex justify-between text-sm font-semibold text-dark mb-2">
+                                <span>Harga Properti</span>
+                                <span class="text-primary" x-text="formatRupiah(harga)"></span>
+                            </label>
+                            <input type="range" min="150000000" max="2000000000" step="10000000" x-model.number="harga" class="w-full">
+                            <div class="flex justify-between text-xs text-muted mt-2">
+                                <span>150 Juta</span>
+                                <span>2 Miliar</span>
+                            </div>
+                        </div>
+
+                        <!-- Uang Muka (DP) -->
+                        <div class="mb-6">
+                            <label class="flex justify-between text-sm font-semibold text-dark mb-2">
+                                <span>Uang Muka (DP) <span class="text-xs text-muted font-normal" x-text="`(${dpPercent}%)`"></span></span>
+                                <span class="text-primary" x-text="formatRupiah(dp)"></span>
+                            </label>
+                            <input type="range" min="0" :max="harga * 0.8" step="5000000" x-model.number="dp" class="w-full">
+                            <div class="text-xs text-muted mt-2">Minimal 0% (Promo), Normalnya 20-30%.</div>
+                        </div>
+
+                        <!-- Tenor / Lama Cicilan -->
+                        <div class="mb-6">
+                            <label class="flex justify-between text-sm font-semibold text-dark mb-2">
+                                <span>Lama Cicilan (Tenor)</span>
+                                <span class="text-primary" x-text="`${tenor} Bulan (${tenor/12} Tahun)`"></span>
+                            </label>
+                            <input type="range" min="12" max="180" step="12" x-model.number="tenor" class="w-full">
+                            <div class="flex justify-between text-xs text-muted mt-2">
+                                <span>1 Tahun</span>
+                                <span>15 Tahun</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-primary-light p-4 rounded-xl mt-8">
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-xl">info</span>
+                                <div>
+                                    <h4 class="text-sm font-bold text-dark mb-1">Skema 100% Syariah</h4>
+                                    <p class="text-xs text-muted leading-relaxed">
+                                        Perhitungan ini merupakan estimasi dasar dengan sistem margin flat syariah. Total pembiayaan dan angsuran akan disepakati di awal (akad) dan tidak akan berubah meskipun terjadi fluktuasi ekonomi.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Display -->
+                    <div class="md:col-span-2 bg-dark p-6 md:p-8 rounded-2xl shadow-xl text-white sticky top-28" data-aos="fade-left">
+                        <h2 class="text-xl font-bold mb-6 text-white border-b border-gray-700 pb-4">Hasil Estimasi</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-sm text-gray-400 mb-1">Plafon Pembiayaan</p>
+                                <p class="text-xl font-semibold text-white" x-text="formatRupiah(plafon)"></p>
+                            </div>
+                            
+                            <div>
+                                <p class="text-sm text-gray-400 mb-1">Estimasi Margin Syariah (Total)</p>
+                                <p class="text-xl font-semibold text-white" x-text="formatRupiah(marginTotal)"></p>
+                                <p class="text-xs text-gray-500 mt-1">Sistem margin flat berdasarkan kesepakatan developer.</p>
+                            </div>
+
+                            <div class="pt-6 border-t border-gray-700">
+                                <p class="text-sm text-primary-light mb-2">Estimasi Angsuran per Bulan</p>
+                                <p class="text-4xl font-bold text-success" x-text="formatRupiah(angsuran)"></p>
+                                <div class="mt-2 inline-flex items-center gap-1 bg-white/10 px-2 py-1 rounded text-xs">
+                                    <span class="material-symbols-outlined text-[14px]">lock</span> Angsuran Flat Sampai Lunas
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="contact.html" class="block w-full text-center bg-primary text-white font-bold py-4 rounded-xl mt-10 hover:bg-primary-hover transition shadow-lg shadow-primary/20">
+                            Ajukan Pembiayaan
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="py-20 bg-white border-t border-border">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-dark mb-4">Pertanyaan Seputar KPR Syariah</h2>
+                    <p class="text-muted">Pahami lebih jauh perbedaan dan keunggulan skema properti syariah.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div x-data="{ open: false }" class="border border-border rounded-xl overflow-hidden bg-surface" data-aos="fade-up">
+                        <button @click="open = !open" class="w-full flex items-center justify-between p-5 text-left hover:bg-primary-light/50 transition">
+                            <span class="font-bold text-dark">Apa bedanya dengan KPR Bank Konvensional?</span>
+                            <span class="material-symbols-outlined text-primary transition-transform duration-300" :class="open && 'rotate-180'">expand_more</span>
+                        </button>
+                        <div x-show="open" x-collapse class="px-5 pb-5 text-sm text-muted leading-relaxed">
+                            Pembiayaan syariah tidak melibatkan pihak ketiga (bank), melainkan transaksi langsung antara Anda dan Developer (Developer Syariah). Skema ini murni jual beli, sehingga tidak ada bunga (riba), denda keterlambatan, maupun sita paksa jika terjadi kendala pembayaran.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div x-data="{ open: false }" class="border border-border rounded-xl overflow-hidden bg-surface" data-aos="fade-up" data-aos-delay="100">
+                        <button @click="open = !open" class="w-full flex items-center justify-between p-5 text-left hover:bg-primary-light/50 transition">
+                            <span class="font-bold text-dark">Apakah ada BI Checking?</span>
+                            <span class="material-symbols-outlined text-primary transition-transform duration-300" :class="open && 'rotate-180'">expand_more</span>
+                        </button>
+                        <div x-show="open" x-collapse class="px-5 pb-5 text-sm text-muted leading-relaxed">
+                            Tidak. Karena tidak melibatkan bank, kami tidak menggunakan BI Checking (SLIK OJK). Persetujuan didasarkan pada itikad baik, verifikasi kemampuan bayar (wawancara keuangan), dan kesepakatan bersama.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div x-data="{ open: false }" class="border border-border rounded-xl overflow-hidden bg-surface" data-aos="fade-up" data-aos-delay="200">
+                        <button @click="open = !open" class="w-full flex items-center justify-between p-5 text-left hover:bg-primary-light/50 transition">
+                            <span class="font-bold text-dark">Bagaimana jika cicilan menunggak?</span>
+                            <span class="material-symbols-outlined text-primary transition-transform duration-300" :class="open && 'rotate-180'">expand_more</span>
+                        </button>
+                        <div x-show="open" x-collapse class="px-5 pb-5 text-sm text-muted leading-relaxed">
+                            Sesuai syariat, kami tidak membebankan denda keterlambatan sepeserpun (karena itu termasuk riba). Jika Anda mengalami kendala finansial, kami mengedepankan musyawarah kekeluargaan untuk mencari solusi bersama, seperti restrukturisasi atau opsi penjualan aset. Tidak ada pengusiran atau penyitaan sepihak.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div x-data="{ open: false }" class="border border-border rounded-xl overflow-hidden bg-surface" data-aos="fade-up" data-aos-delay="300">
+                        <button @click="open = !open" class="w-full flex items-center justify-between p-5 text-left hover:bg-primary-light/50 transition">
+                            <span class="font-bold text-dark">Apakah DP (Uang Muka) bisa dicicil?</span>
+                            <span class="material-symbols-outlined text-primary transition-transform duration-300" :class="open && 'rotate-180'">expand_more</span>
+                        </button>
+                        <div x-show="open" x-collapse class="px-5 pb-5 text-sm text-muted leading-relaxed">
+                            Bisa! Untuk beberapa project properti (khususnya inden/pesan bangun), DP dapat diangsur sesuai dengan kemampuan (biasanya 3 hingga 12 bulan) tergantung kesepakatan dengan developer terkait.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-border pt-16 pb-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-1">
+                    <a href="index.html" class="flex items-center gap-2 mb-6 group inline-block">
+                        <span class="material-symbols-outlined text-3xl text-primary group-hover:text-primary-hover transition">real_estate_agent</span>
+                        <div>
+                            <h2 class="text-xl font-bold text-primary leading-tight">Magatti</h2>
+                            <p class="text-[10px] text-muted tracking-widest uppercase font-semibold">Property Syariah</p>
+                        </div>
+                    </a>
+                    <p class="text-muted text-sm leading-relaxed mb-6">
+                        Solusi kepemilikan hunian syariah terpercaya di Makassar. Bebas riba, bebas sita, bebas denda.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-muted hover:bg-primary hover:text-white transition" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-muted hover:bg-primary hover:text-white transition" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-muted hover:bg-primary hover:text-white transition" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h3 class="font-bold text-dark mb-6">Menu Cepat</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-sm text-muted hover:text-primary transition">Beranda</a></li>
+                        <li><a href="about.html" class="text-sm text-muted hover:text-primary transition">Tentang Kami</a></li>
+                        <li><a href="services.html" class="text-sm text-muted hover:text-primary transition">Katalog Properti</a></li>
+                        <li><a href="pricing.html" class="text-sm text-primary font-semibold transition">Simulasi Cicilan</a></li>
+                        <li><a href="contact.html" class="text-sm text-muted hover:text-primary transition">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal / Info -->
+                <div>
+                    <h3 class="font-bold text-dark mb-6">Informasi</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-muted hover:text-primary transition">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="text-sm text-muted hover:text-primary transition">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="text-sm text-muted hover:text-primary transition">Panduan Pembelian</a></li>
+                        <li><a href="#" class="text-sm text-muted hover:text-primary transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-bold text-dark mb-6">Hubungi Kami</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary mt-0.5 text-lg">location_on</span>
+                            <span class="text-sm text-muted">Jl. Perintis Kemerdekaan No. 8, Tamalanrea, Kota Makassar, Sulawesi Selatan 90245</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">call</span>
+                            <span class="text-sm text-muted">+62 811-2345-6789</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">mail</span>
+                            <span class="text-sm text-muted">info@magattiproperty.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-sm text-muted">
+                    &copy; 2026 Magatti Property Syariah. All rights reserved.
+                </p>
+                <p class="text-sm text-muted flex items-center gap-1">
+                    Built with <span class="material-symbols-outlined text-error text-sm">favorite</span> by <a href="#" class="text-primary hover:underline font-medium">@Magattidigital</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-hover hover:-translate-y-1 transition-all z-40 hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" aria-label="Kembali ke atas">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+
+    <!-- Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS Animation
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Back to top visibility logic
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                btn.classList.remove('hidden');
+            } else {
+                btn.classList.add('hidden');
+            }
+        });
+
+        // Alpine.js Logic for Syariah Calculator
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('syariahCalculator', () => ({
+                harga: 450000000,
+                dp: 90000000,
+                tenor: 120, // months
+                
+                // Getter for formatting
+                formatRupiah(number) {
+                    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
+                },
+                
+                // Computed properties
+                get dpPercent() {
+                    return Math.round((this.dp / this.harga) * 100) || 0;
+                },
+                get plafon() {
+                    return Math.max(0, this.harga - this.dp);
+                },
+                get marginTotal() {
+                    // Simulasi margin developer syariah rata-rata: (misal 5% flat per tahun dari plafon)
+                    // Note: Ini hanya estimasi sistem, prakteknya diakadkan di awal.
+                    const asumsiMarginTahunan = 0.05; 
+                    const tahun = this.tenor / 12;
+                    return this.plafon * asumsiMarginTahunan * tahun;
+                },
+                get angsuran() {
+                    if (this.tenor === 0) return 0;
+                    return (this.plafon + this.marginTotal) / this.tenor;
+                }
+            }))
+        })
+    </script>
+</body>
+</html>

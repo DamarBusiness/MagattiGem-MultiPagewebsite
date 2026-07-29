@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Katalog Layanan Magatti Property — Temukan berbagai pilihan perumahan syariah di Makassar dan sekitarnya. Bebas riba, denda, dan sita.">
+    <meta property="og:title" content="Katalog Properti — Magatti Property Syariah">
+    <meta property="og:description" content="Jelajahi hunian impian keluarga dengan skema 100% murni syariah. Lihat detail properti, harga, dan spesifikasi di sini.">
+    <meta property="og:url" content="https://magattiproperty.com/services.html">
+    <meta name="theme-color" content="#065f46">
+    <title>Katalog Properti — Magatti Property Syariah</title>
+
+    <!-- Favicon (SVG Emoji) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+    
+    <!-- CSS Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#065f46',
+                        'primary-hover': '#047857',
+                        'primary-light': '#ecfdf5',
+                        dark: '#0f172a',
+                        surface: '#f8fafc',
+                        panel: '#ffffff',
+                        text: '#1e293b',
+                        muted: '#64748b',
+                        border: '#e2e8f0',
+                        success: '#10b981',
+                        warning: '#f59e0b',
+                        error: '#ef4444',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #065f46;
+            --primary-hover: #047857;
+            --primary-light: #ecfdf5;
+            --font-sans: 'Inter', sans-serif;
+        }
+        body {
+            font-family: var(--font-sans);
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+    </style>
+
+    <!-- JSON-LD SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Katalog Properti Magatti",
+      "description": "Katalog Properti Syariah di Makassar",
+      "publisher": {
+        "@type": "RealEstateAgent",
+        "name": "Magatti Property"
+      }
+    }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded">
+        Skip to content
+    </a>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-border shadow-sm" x-data="{ open: false }">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2 group focus-visible:outline-2 focus-visible:outline-primary rounded">
+                    <span class="material-symbols-outlined text-3xl text-primary group-hover:text-primary-hover transition">real_estate_agent</span>
+                    <div>
+                        <h1 class="text-xl font-bold text-primary leading-tight">Magatti</h1>
+                        <p class="text-[10px] text-muted tracking-widest uppercase font-semibold">Property Syariah</p>
+                    </div>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-text hover:text-primary transition">Home</a>
+                    <a href="about.html" class="text-text hover:text-primary transition">About</a>
+                    <a href="services.html" class="text-primary font-semibold transition">Katalog</a>
+                    <a href="pricing.html" class="text-text hover:text-primary transition">Simulasi</a>
+                    <a href="contact.html" class="text-text hover:text-primary transition">Kontak</a>
+                    <a href="contact.html" class="bg-primary text-white px-5 py-2.5 rounded-lg font-medium hover:bg-primary-hover transition shadow-md shadow-primary/20">
+                        Hubungi Kami
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <button @click="open = !open" class="md:hidden p-2 text-text hover:text-primary transition rounded focus-visible:outline-2 focus-visible:outline-primary" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-2xl" x-show="!open">menu</span>
+                    <span class="material-symbols-outlined text-2xl" x-cloak x-show="open">close</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden border-t border-border bg-white absolute w-full shadow-lg" x-show="open" x-collapse x-cloak>
+            <div class="px-4 py-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 text-text hover:bg-surface rounded-lg">Home</a>
+                <a href="about.html" class="block px-4 py-3 text-text hover:bg-surface rounded-lg">About</a>
+                <a href="services.html" class="block px-4 py-3 bg-primary-light text-primary font-semibold rounded-lg">Katalog</a>
+                <a href="pricing.html" class="block px-4 py-3 text-text hover:bg-surface rounded-lg">Simulasi</a>
+                <a href="contact.html" class="block px-4 py-3 text-text hover:bg-surface rounded-lg">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="pt-20">
+        
+        <!-- PAGE HERO -->
+        <section class="bg-primary-light py-16 md:py-24 border-b border-border">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold text-dark mb-4">Katalog Properti Syariah</h1>
+                <p class="text-lg text-muted max-w-2xl mx-auto mb-6">Pilih hunian idaman yang sesuai dengan kebutuhan keluarga Anda. Tersedia unit ready stock dan pesan bangun (indent).</p>
+                <nav class="flex items-center justify-center gap-2 text-sm text-muted font-medium">
+                    <a href="index.html" class="hover:text-primary transition flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">home</span> Beranda
+                    </a>
+                    <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    <span class="text-primary">Katalog Properti</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- CATALOG SECTION -->
+        <section class="py-20 bg-white" x-data="{ filter: 'all' }">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Filters -->
+                <div class="flex flex-wrap items-center justify-center gap-3 mb-12" data-aos="fade-up">
+                    <button @click="filter = 'all'" :class="filter === 'all' ? 'bg-primary text-white' : 'bg-surface text-text hover:bg-primary-light hover:text-primary'" class="px-6 py-2.5 rounded-full font-medium transition duration-300">
+                        Semua Lokasi
+                    </button>
+                    <button @click="filter = 'makassar'" :class="filter === 'makassar' ? 'bg-primary text-white' : 'bg-surface text-text hover:bg-primary-light hover:text-primary'" class="px-6 py-2.5 rounded-full font-medium transition duration-300">
+                        Makassar
+                    </button>
+                    <button @click="filter = 'gowa'" :class="filter === 'gowa' ? 'bg-primary text-white' : 'bg-surface text-text hover:bg-primary-light hover:text-primary'" class="px-6 py-2.5 rounded-full font-medium transition duration-300">
+                        Gowa
+                    </button>
+                    <button @click="filter = 'maros'" :class="filter === 'maros' ? 'bg-primary text-white' : 'bg-surface text-text hover:bg-primary-light hover:text-primary'" class="px-6 py-2.5 rounded-full font-medium transition duration-300">
+                        Maros
+                    </button>
+                </div>
+
+                <!-- Property Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Item 1: Makassar -->
+                    <div x-show="filter === 'all' || filter === 'makassar'" class="bg-white rounded-2xl border border-border overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300 group" data-aos="fade-up">
+                        <div class="relative overflow-hidden h-56">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Al-Fatih Residence" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">
+                                Ready Stock
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-dark/80 text-white backdrop-blur px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs">location_on</span> Biringkanaya, Makassar
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-dark mb-1">Al-Fatih Residence</h3>
+                            <p class="text-muted text-sm mb-4">Lingkungan Islami dilengkapi Masjid Jamie.</p>
+                            <p class="text-primary font-bold text-xl mb-4">Rp 450.000.000</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 border-y border-border py-4 mb-6 mt-auto">
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">bed</span>
+                                    <span class="text-sm font-medium">2 KT</span>
+                                </div>
+                                <div class="text-center border-x border-border">
+                                    <span class="material-symbols-outlined text-muted block mb-1">shower</span>
+                                    <span class="text-sm font-medium">1 KM</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">aspect_ratio</span>
+                                    <span class="text-sm font-medium">60 m²</span>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="block text-center border-2 border-primary text-primary font-semibold py-3 rounded-xl hover:bg-primary hover:text-white transition">Tanya Detail</a>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Makassar -->
+                    <div x-show="filter === 'all' || filter === 'makassar'" class="bg-white rounded-2xl border border-border overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative overflow-hidden h-56">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sakinah Townhouse" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                            <div class="absolute top-4 right-4 bg-error/90 text-white backdrop-blur px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                                Sisa 1 Unit
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-dark/80 text-white backdrop-blur px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs">location_on</span> Tamalanrea, Makassar
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-dark mb-1">Sakinah Townhouse</h3>
+                            <p class="text-muted text-sm mb-4">Konsep modern tropis dekat kawasan pendidikan.</p>
+                            <p class="text-primary font-bold text-xl mb-4">Rp 650.000.000</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 border-y border-border py-4 mb-6 mt-auto">
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">bed</span>
+                                    <span class="text-sm font-medium">3 KT</span>
+                                </div>
+                                <div class="text-center border-x border-border">
+                                    <span class="material-symbols-outlined text-muted block mb-1">shower</span>
+                                    <span class="text-sm font-medium">2 KM</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">aspect_ratio</span>
+                                    <span class="text-sm font-medium">84 m²</span>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="block text-center border-2 border-primary text-primary font-semibold py-3 rounded-xl hover:bg-primary hover:text-white transition">Tanya Detail</a>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Gowa -->
+                    <div x-show="filter === 'all' || filter === 'gowa'" class="bg-white rounded-2xl border border-border overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative overflow-hidden h-56">
+                            <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Darussalam City" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">
+                                Pesan Bangun
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-dark/80 text-white backdrop-blur px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs">location_on</span> Somba Opu, Gowa
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-dark mb-1">Darussalam City</h3>
+                            <p class="text-muted text-sm mb-4">Kawasan perumahan asri dengan view pegunungan.</p>
+                            <p class="text-primary font-bold text-xl mb-4">Rp 320.000.000</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 border-y border-border py-4 mb-6 mt-auto">
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">bed</span>
+                                    <span class="text-sm font-medium">2 KT</span>
+                                </div>
+                                <div class="text-center border-x border-border">
+                                    <span class="material-symbols-outlined text-muted block mb-1">shower</span>
+                                    <span class="text-sm font-medium">1 KM</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">aspect_ratio</span>
+                                    <span class="text-sm font-medium">72 m²</span>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="block text-center border-2 border-primary text-primary font-semibold py-3 rounded-xl hover:bg-primary hover:text-white transition">Tanya Detail</a>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Maros -->
+                    <div x-show="filter === 'all' || filter === 'maros'" class="bg-white rounded-2xl border border-border overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300 group" data-aos="fade-up">
+                        <div class="relative overflow-hidden h-56">
+                            <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Maros Berkah Estate" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">
+                                Tahap 2
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-dark/80 text-white backdrop-blur px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs">location_on</span> Mandai, Maros
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-dark mb-1">Maros Berkah Estate</h3>
+                            <p class="text-muted text-sm mb-4">Dekat bandara Sultan Hasanuddin, akses mudah.</p>
+                            <p class="text-primary font-bold text-xl mb-4">Rp 280.000.000</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 border-y border-border py-4 mb-6 mt-auto">
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">bed</span>
+                                    <span class="text-sm font-medium">2 KT</span>
+                                </div>
+                                <div class="text-center border-x border-border">
+                                    <span class="material-symbols-outlined text-muted block mb-1">shower</span>
+                                    <span class="text-sm font-medium">1 KM</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">aspect_ratio</span>
+                                    <span class="text-sm font-medium">65 m²</span>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="block text-center border-2 border-primary text-primary font-semibold py-3 rounded-xl hover:bg-primary hover:text-white transition">Tanya Detail</a>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: Gowa -->
+                    <div x-show="filter === 'all' || filter === 'gowa'" class="bg-white rounded-2xl border border-border overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative overflow-hidden h-56">
+                            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hidayah Cluster" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                            <div class="absolute top-4 right-4 bg-warning/90 text-white backdrop-blur px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                                Promo DP 0%
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-dark/80 text-white backdrop-blur px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs">location_on</span> Pallangga, Gowa
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-dark mb-1">Hidayah Cluster</h3>
+                            <p class="text-muted text-sm mb-4">Desain minimalis, cocok untuk keluarga muda.</p>
+                            <p class="text-primary font-bold text-xl mb-4">Rp 250.000.000</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 border-y border-border py-4 mb-6 mt-auto">
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">bed</span>
+                                    <span class="text-sm font-medium">2 KT</span>
+                                </div>
+                                <div class="text-center border-x border-border">
+                                    <span class="material-symbols-outlined text-muted block mb-1">shower</span>
+                                    <span class="text-sm font-medium">1 KM</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">aspect_ratio</span>
+                                    <span class="text-sm font-medium">60 m²</span>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="block text-center border-2 border-primary text-primary font-semibold py-3 rounded-xl hover:bg-primary hover:text-white transition">Tanya Detail</a>
+                        </div>
+                    </div>
+
+                    <!-- Item 6: Makassar -->
+                    <div x-show="filter === 'all' || filter === 'makassar'" class="bg-white rounded-2xl border border-border overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative overflow-hidden h-56">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Jannah Estate" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy">
+                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">
+                                Premium
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-dark/80 text-white backdrop-blur px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs">location_on</span> Panakkukang, Makassar
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-dark mb-1">Jannah Estate</h3>
+                            <p class="text-muted text-sm mb-4">Hunian mewah 2 lantai di pusat kota Makassar.</p>
+                            <p class="text-primary font-bold text-xl mb-4">Rp 1.250.000.000</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 border-y border-border py-4 mb-6 mt-auto">
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">bed</span>
+                                    <span class="text-sm font-medium">4 KT</span>
+                                </div>
+                                <div class="text-center border-x border-border">
+                                    <span class="material-symbols-outlined text-muted block mb-1">shower</span>
+                                    <span class="text-sm font-medium">3 KM</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="material-symbols-outlined text-muted block mb-1">aspect_ratio</span>
+                                    <span class="text-sm font-medium">120 m²</span>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="block text-center border-2 border-primary text-primary font-semibold py-3 rounded-xl hover:bg-primary hover:text-white transition">Tanya Detail</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Action -->
+                <div class="mt-16 text-center bg-surface p-8 md:p-12 rounded-3xl border border-border" data-aos="fade-up">
+                    <h2 class="text-2xl md:text-3xl font-bold text-dark mb-4">Tidak Menemukan yang Anda Cari?</h2>
+                    <p class="text-muted mb-8 max-w-2xl mx-auto">Kami memiliki banyak listing properti syariah lainnya yang belum dipublikasikan. Beritahu kami spesifikasi dan budget Anda.</p>
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-primary-hover transition shadow-lg shadow-primary/30">
+                        <i class="fab fa-whatsapp text-xl"></i> Konsultasi Pencarian Properti
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-border pt-16 pb-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-1">
+                    <a href="index.html" class="flex items-center gap-2 mb-6 group inline-block">
+                        <span class="material-symbols-outlined text-3xl text-primary group-hover:text-primary-hover transition">real_estate_agent</span>
+                        <div>
+                            <h2 class="text-xl font-bold text-primary leading-tight">Magatti</h2>
+                            <p class="text-[10px] text-muted tracking-widest uppercase font-semibold">Property Syariah</p>
+                        </div>
+                    </a>
+                    <p class="text-muted text-sm leading-relaxed mb-6">
+                        Solusi kepemilikan hunian syariah terpercaya di Makassar. Bebas riba, bebas sita, bebas denda.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-muted hover:bg-primary hover:text-white transition" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-muted hover:bg-primary hover:text-white transition" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-muted hover:bg-primary hover:text-white transition" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h3 class="font-bold text-dark mb-6">Menu Cepat</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-sm text-muted hover:text-primary transition">Beranda</a></li>
+                        <li><a href="about.html" class="text-sm text-muted hover:text-primary transition">Tentang Kami</a></li>
+                        <li><a href="services.html" class="text-sm text-primary font-semibold transition">Katalog Properti</a></li>
+                        <li><a href="pricing.html" class="text-sm text-muted hover:text-primary transition">Simulasi Cicilan</a></li>
+                        <li><a href="contact.html" class="text-sm text-muted hover:text-primary transition">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal / Info -->
+                <div>
+                    <h3 class="font-bold text-dark mb-6">Informasi</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-muted hover:text-primary transition">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="text-sm text-muted hover:text-primary transition">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="text-sm text-muted hover:text-primary transition">Panduan Pembelian</a></li>
+                        <li><a href="#" class="text-sm text-muted hover:text-primary transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-bold text-dark mb-6">Hubungi Kami</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary mt-0.5 text-lg">location_on</span>
+                            <span class="text-sm text-muted">Jl. Perintis Kemerdekaan No. 8, Tamalanrea, Kota Makassar, Sulawesi Selatan 90245</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">call</span>
+                            <span class="text-sm text-muted">+62 811-2345-6789</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">mail</span>
+                            <span class="text-sm text-muted">info@magattiproperty.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-sm text-muted">
+                    &copy; 2026 Magatti Property Syariah. All rights reserved.
+                </p>
+                <p class="text-sm text-muted flex items-center gap-1">
+                    Built with <span class="material-symbols-outlined text-error text-sm">favorite</span> by <a href="#" class="text-primary hover:underline font-medium">@Magattidigital</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-hover hover:-translate-y-1 transition-all z-40 hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" aria-label="Kembali ke atas">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+
+    <!-- Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS Animation
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Back to top visibility logic
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                btn.classList.remove('hidden');
+            } else {
+                btn.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
